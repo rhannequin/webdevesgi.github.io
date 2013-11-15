@@ -13,7 +13,7 @@
         <ul class="menu">
           <li><a href="#" data-page="home">Home</a></li>
           <li><a href="#" data-page="nextEvent">Next event</a></li>
-          <li><a href="#" data-page="pastEvents" class="past-events">Past events</a></li>
+          <li><a href="#events" data-page="pastEvents">Past events</a></li>
           <li><a href="#" data-page="submitEvent">Submit event</a></li>
           <li><a href="#" data-page="about">About</a></li>
         </ul>
@@ -40,7 +40,7 @@
       <td><%= title %></td>
       <td><%= created_at.toDateString() %></td>
       <td>
-        <a href="#" class="js-show">Show</a>
+        <a href="#events/<%= id %>">Show</a>
       </td>
     </script>
 
@@ -50,7 +50,10 @@
     </script>
 
     <!-- Scripts -->
-@@livereload
+    @@livereload
     <script type="text/javascript" src="assets/scripts/app.js"></script>
+    <script>
+      WDE.start()
+    </script>
   </body>
 </html>

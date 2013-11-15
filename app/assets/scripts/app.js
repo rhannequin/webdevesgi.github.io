@@ -10,14 +10,19 @@
     footer: '.container>footer'
   })
 
+  WDE.navigate = function(route, options) {
+    options = options || (options = {})
+    Backbone.history.navigate(route, options)
+  }
+
+  WDE.getCurrentRoute = function() {
+    return Backbone.history.fragment
+  }
 
   WDE.on('initialize:after', function() {
-    WDE.EventsApp.List.Controller.listEvents()
-  })
-
-  $('.past-events').on('click', function(e) {
-    e.preventDefault()
-    WDE.start()
+    if(Backbone.history) {
+      Backbone.history.start()
+    }
   })
 
 })(window, window.document)

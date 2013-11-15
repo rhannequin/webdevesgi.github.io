@@ -13,7 +13,7 @@
         })
 
         eventsListView.on('itemview:event:show', function(childView, model) {
-          WDE.EventsApp.Show.Controller.showEvent(model)
+          WDE.trigger('events:show', model.get('id'))
         })
 
         WDE.page.show(eventsListView)

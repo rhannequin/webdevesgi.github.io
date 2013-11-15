@@ -6,16 +6,7 @@
 
     List.Event = Marionette.ItemView.extend({
       tagName: 'tr',
-      template: '#event-list-item',
-
-      events: {
-        'click td a.js-show': 'showClicked'
-      },
-
-      showClicked: function(e) {
-        e.preventDefault()
-        this.trigger('event:show', this.model)
-      }
+      template: '#event-list-item'
     })
 
     List.Events = Marionette.CompositeView.extend({
