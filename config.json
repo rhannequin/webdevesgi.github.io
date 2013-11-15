@@ -6,6 +6,7 @@
   "bower": "bower_components",
   "local": {
     "_": "app",
+    "api_url": "http://localhost:5000",
     "assets": {
       "_": "<%= config.local._ %>/assets",
       "images": "<%= config.local.assets._ %>/images",
@@ -17,6 +18,7 @@
   },
   "dist": {
     "_": "dist",
+    "api_url": "http://labowebesgi-api.herokuapp.com",
     "assets": {
       "_": "<%= config.dist._ %>/assets",
       "images": "<%= config.dist.assets._ %>/images",

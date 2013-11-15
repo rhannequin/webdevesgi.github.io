@@ -6,18 +6,20 @@
 
     Show.Controller = {
       showEvent: function(id) {
-        var events = WDE.request('event:entities')
-        var model = events.get(id)
-        var eventView
-        if(typeof model !== 'undefined') {
-          eventView = new Show.Event({
-            model: model
-          })
-        } else {
-          eventView = new Show.MissingEvent()
-        }
+        var fetchingEvent = WDE.request('event:entity', id)
 
-        WDE.page.show(eventView)
+        $.when(fetchingEvent).done(function(model) {
+          var eventView
+          if(typeof model !== 'undefined') {
+            eventView = new Show.Event({
+              model: model
+            })
+          } else {
+            eventView = new Show.MissingEvent()
+          }
+
+          WDE.page.show(eventView)
+        })
       }
     }
 

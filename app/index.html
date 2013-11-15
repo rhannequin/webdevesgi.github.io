@@ -49,12 +49,14 @@
       <p>Created at: <%= created_at.toDateString() %></p>
     </script>
 
-    <script tpe="text-template" id="missing-event-view">
+    <script type="text-template" id="missing-event-view">
       <p>This event doesn't exist!</p>
     </script>
 
-    <!-- Scripts -->
-    @@livereload
+    <!-- Scripts -->@@livereload
+    <script>
+      window.apiUrl = '@@apiUrl'
+    </script>
     <script type="text/javascript" src="assets/scripts/app.js"></script>
     <script>
       WDE.start()

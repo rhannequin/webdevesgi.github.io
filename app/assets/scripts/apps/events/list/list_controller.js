@@ -6,17 +6,19 @@
 
     List.Controller = {
       listEvents: function() {
-        var events = WDE.request('event:entities')
+        var fetchingEvents = WDE.request('event:entities')
 
-        var eventsListView = new List.Events({
-          collection: events
+        $.when(fetchingEvents).done(function(events) {
+          var eventsListView = new List.Events({
+            collection: events
+          })
+
+          eventsListView.on('itemview:event:show', function(childView, model) {
+            WDE.trigger('events:show', model.get('id'))
+          })
+
+          WDE.page.show(eventsListView)
         })
-
-        eventsListView.on('itemview:event:show', function(childView, model) {
-          WDE.trigger('events:show', model.get('id'))
-        })
-
-        WDE.page.show(eventsListView)
       }
     }
 

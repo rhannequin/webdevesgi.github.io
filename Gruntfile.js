@@ -52,7 +52,10 @@ module.exports = function (grunt) {
     replace: {
       dev: {
         options: {
-          variables: { 'livereload': '<script src="http://localhost:35729/livereload.js"></script>' },
+          variables: {
+            livereload: '<script src="http://localhost:35729/livereload.js"></script>',
+            apiUrl: '<%= config.local.api_url %>'
+          },
           prefix: '@@'
         },
         files: [
@@ -64,7 +67,10 @@ module.exports = function (grunt) {
       },
       build: {
         options: {
-          variables: { 'livereload': '' },
+          variables: {
+            livereload: '',
+            apiUrl: '<%= config.dist.api_url %>'
+          },
           prefix: '@@'
         },
         files: [
