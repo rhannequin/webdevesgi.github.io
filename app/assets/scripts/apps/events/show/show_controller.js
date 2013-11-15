@@ -8,9 +8,14 @@
       showEvent: function(id) {
         var events = WDE.request('event:entities')
         var model = events.get(id)
-        var eventView = new Show.Event({
-          model: model
-        })
+        var eventView
+        if(typeof model !== 'undefined') {
+          eventView = new Show.Event({
+            model: model
+          })
+        } else {
+          eventView = new Show.MissingEvent()
+        }
 
         WDE.page.show(eventView)
       }
